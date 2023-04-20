@@ -38,8 +38,14 @@ public class LineCompare {
 
         System.out.println("The Length of Line 2 is: " + length2);
 
+        /*Comparing The Both Line UC-3*/
 
-
+        if (length1==length2){
+            System.out.println("Both the Line is Equal");
+        }
+        else{
+            System.out.println("Both Line is Not Equal");
+        }
 
     }
 }
