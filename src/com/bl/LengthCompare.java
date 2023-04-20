@@ -4,8 +4,8 @@ package com.bl;
 import java.util.Scanner;
 
 class Point {
-    private int x;
-    private int y;
+    private final int x;
+    private final int y;
 
     public Point(int x, int y) {
         this.x = x;
@@ -22,8 +22,8 @@ class Point {
 }
 
 public class LengthCompare {
-    private Point startPoint;
-    private Point endPoint;
+    private final Point startPoint;
+    private final Point endPoint;
 
     public LengthCompare(Point startPoint, Point endPoint) {
         this.startPoint = startPoint;
@@ -52,5 +52,38 @@ public class LengthCompare {
 
         LengthCompare line = new LengthCompare(startPoint, endPoint);
         System.out.println("The length of the line is " + line.length());
+
+        LengthCompare line1 = new LengthCompare(startPoint, endPoint);
+        LengthCompare line2 = new LengthCompare(startPoint, endPoint);
+
+        double length1 = line1.length();
+        double length2 = line2.length();
+
+        System.out.println("Enter 1 to compare the lengths of the lines.");
+        System.out.println("Enter 2 to check if the lines are equal in length.");
+
+        int choice = scanner.nextInt();
+
+        switch (choice) {
+            case 1:
+                if (length1 > length2) {
+                    System.out.println("Line 1 is longer than Line 2.");
+                } else if (length1 < length2) {
+                    System.out.println("Line 2 is longer than Line 1.");
+                } else {
+                    System.out.println("Line 1 and Line 2 have the same length.");
+                }
+                break;
+            case 2:
+                if (line1.equals(line2)) {
+                    System.out.println("Line 1 is equal in length to Line 2.");
+                } else {
+                    System.out.println("Line 1 is not equal in length to Line 2.");
+                }
+                break;
+            default:
+                System.out.println("Invalid choice.");
+                break;
+        }
     }
 }
